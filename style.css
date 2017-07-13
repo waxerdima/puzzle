@@ -1,0 +1,47 @@
+.img {
+  padding: 0;
+  width: 450px;
+  height: 300px; 
+  position: relative;
+  box-sizing: border-box;
+  border: 2px solid;
+  margin: 0 auto;
+}
+
+.clip { 
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  background: url(image01.jpg) no-repeat; 
+  background-size: 400%;
+  width: 25%;
+  height: 50%;
+  list-style: none;
+  transition: all 0.1s;
+}
+
+.clip.top1 { clip-path: polygon(0 0, 0 100%, 100% 100%); -webkit-clip-path: polygon(0 0, 0 100%, 100% 100%); background-position: 0 0; }
+.clip.top2 { clip-path: polygon(0 0, 100% 0, 100% 100%); -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%); background-position: 0 0; }
+
+.clip.top3 { clip-path: polygon(0 0, 0 100%, 100% 100%); -webkit-clip-path: polygon(0 0, 0 100%, 100% 100%); background-position: 33.5% 0; left: 25%; }
+.clip.top4 { clip-path: polygon(0 0, 100% 0, 100% 100%); -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%); background-position: 33.5% 0; left: 25%; }
+
+.clip.top5 { clip-path: polygon(0 0, 0 100%, 100% 100%); -webkit-clip-path: polygon(0 0, 0 100%, 100% 100%); background-position: 67% 0; left: 50%; }
+.clip.top6 { clip-path: polygon(0 0, 100% 0, 100% 100%); -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%); background-position: 67% 0; left: 50%; }
+
+.clip.top7 { clip-path: polygon(0 0, 0 100%, 100% 100%); -webkit-clip-path: polygon(0 0, 0 100%, 100% 100%); background-position: 100% 0; left: 75%; }
+.clip.top8 { clip-path: polygon(0 0, 100% 0, 100% 100%); -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%); background-position: 100% 0; left: 75%; }
+
+.clip.bottom1 { bottom: 0; top: auto; clip-path: polygon(0 0, 0 100%, 100% 100%); -webkit-clip-path: polygon(0 0, 0 100%, 100% 100%); background-position: 0 100%; }
+.clip.bottom2 { bottom: 0; top: auto; clip-path: polygon(0 0, 100% 0, 100% 100%); -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%); background-position: 0 100%; }
+
+.clip.bottom3 { bottom: 0; top: auto; clip-path: polygon(0 0, 0 100%, 100% 100%); -webkit-clip-path: polygon(0 0, 0 100%, 100% 100%); background-position: 33.5% 100%; left: 25%; }
+.clip.bottom4 { bottom: 0; top: auto; clip-path: polygon(0 0, 100% 0, 100% 100%); -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%); background-position: 33.5% 100%; left: 25%; }
+
+.clip.bottom5 { bottom: 0; top: auto; clip-path: polygon(0 0, 0 100%, 100% 100%); -webkit-clip-path: polygon(0 0, 0 100%, 100% 100%); background-position: 67% 100%; left: 50%; }
+.clip.bottom6 { bottom: 0; top: auto; clip-path: polygon(0 0, 100% 0, 100% 100%); -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%); background-position: 67% 100%; left: 50%; }
+
+.clip.bottom7 { bottom: 0; top: auto; clip-path: polygon(0 0, 0 100%, 100% 100%); -webkit-clip-path: polygon(0 0, 0 100%, 100% 100%); background-position: 100% 100%; left: 75%; }
+.clip.bottom8 { bottom: 0; top: auto; clip-path: polygon(0 0, 100% 0, 100% 100%); -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%); background-position: 100% 100%; left: 75%; }
+
+  

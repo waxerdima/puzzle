@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Puzzzle</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  
+  <link href="jquery-ui.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+  <script src="jquery.js"></script>
+  <script src="jquery-ui.js"></script>
+</head>
+<body style="background: #ccc;">
+
+  <ul class="img">
+    <li class="clip top1"></li>
+    <li class="clip top2"></li>
+    <li class="clip top3"></li>
+    <li class="clip top4"></li>
+    <li class="clip top5"></li>
+    <li class="clip top6"></li>
+    <li class="clip top7"></li>
+    <li class="clip top8"></li>
+
+    <li class="clip bottom1"></li>
+    <li class="clip bottom2"></li>
+    <li class="clip bottom3"></li>
+    <li class="clip bottom4"></li>
+    <li class="clip bottom5"></li>
+    <li class="clip bottom6"></li>
+    <li class="clip bottom7"></li>
+    <li class="clip bottom8"></li>
+  </ul>
+
+  <script>
+    $('.clip').draggable({containment: 'window'});
+  </script>
+</body>
+</html>
