@@ -58,8 +58,30 @@
     
     $('.target').droppable({
       drop: function(event, ui) {
-        var id = ui.draggable.hide().data('id');
-        $('.target .clip[data-id="' + id + '"]').show();
+        var
+          maxX = 0,
+          minX = 100,
+          maxY = 0,
+          minY = 100,
+          id = ui.draggable.data('id'),
+          $target = $('.target .clip[data-id="' + id + '"]'),
+          width = $target.width(),
+          height = $target.height(),
+          deltaX = width / 100 * 20,
+          size = ($target.css('-webkit-clip-path') || $target.css('clip-path')).replace('polygon(', '').replace(')', '').split(',');
+        
+        $.each(size, function(index, item) {
+          var xy = $.trim(item).split(' ');
+          maxX = Math.max(parseInt(xy[0].replace(/%|px/, '')), maxX);
+          maxY = Math.max(parseInt(xy[1].replace(/%|px/, '')), maxY);
+          minX = Math.min(parseInt(xy[0].replace(/%|px/, '')), minX);
+          minY = Math.min(parseInt(xy[1].replace(/%|px/, '')), minY);
+        });
+
+        if ((ui.position.left - deltaX > minX / 100 * width) && (ui.position.left - deltaX < maxX / 100 * width) && (ui.position.top > minY / 100 * height) && (ui.position.top < maxY / 100 * height)) {
+          ui.draggable.hide();
+          $target.show();
+        }
       }
     });
 //    $('.clip').draggable({
