@@ -11,30 +11,66 @@
   <script src="jquery-ui.js"></script>
   <script src="jquery.ui.touch-punch.js"></script>
 </head>
-<body style="background: #ccc;">
+<body>
 
-  <ul class="img">
-    <li class="clip top1"></li>
-    <li class="clip top2"></li>
-    <li class="clip top3"></li>
-    <li class="clip top4"></li>
-    <li class="clip top5"></li>
-    <li class="clip top6"></li>
-    <li class="clip top7"></li>
-    <li class="clip top8"></li>
+  <div class="wrapper">
+    <div class="container">
+      <div class="clip slice1" data-id="1"></div>
+      <div class="clip slice2" data-id="2"></div>
+      <div class="clip slice3" data-id="3"></div>
+      <div class="clip slice4" data-id="4"></div>
+    </div>
+    <div class="image">
+      <div class="target">
+        <div class="clip slice1" data-id="1"></div>
+        <div class="clip slice2" data-id="2"></div>
+        <div class="clip slice3" data-id="3"></div>
+        <div class="clip slice4" data-id="4"></div>
+      </div>
+    </div>
+  </div>
+  
+  <!--<ul class="img">-->
+    <!--<li class="clip top1"></li>-->
+    <!--<li class="clip top2"></li>-->
+    <!--<li class="clip top3"></li>-->
+    <!--<li class="clip top4"></li>-->
+    <!--<li class="clip top5"></li>-->
+    <!--<li class="clip top6"></li>-->
+    <!--<li class="clip top7"></li>-->
+    <!--<li class="clip top8"></li>-->
 
-    <li class="clip bottom1"></li>
-    <li class="clip bottom2"></li>
-    <li class="clip bottom3"></li>
-    <li class="clip bottom4"></li>
-    <li class="clip bottom5"></li>
-    <li class="clip bottom6"></li>
-    <li class="clip bottom7"></li>
-    <li class="clip bottom8"></li>
-  </ul>
+    <!--<li class="clip bottom1"></li>-->
+    <!--<li class="clip bottom2"></li>-->
+    <!--<li class="clip bottom3"></li>-->
+    <!--<li class="clip bottom4"></li>-->
+    <!--<li class="clip bottom5"></li>-->
+    <!--<li class="clip bottom6"></li>-->
+    <!--<li class="clip bottom7"></li>-->
+    <!--<li class="clip bottom8"></li>-->
+  <!--</ul>-->
 
   <script>
-    $('.clip').draggable({containment: 'window'});
+    $('.clip').draggable({
+      containment: 'window',
+      revert: true
+    });
+    
+    $('.target').droppable({
+      drop: function(event, ui) {
+        var id = ui.draggable.hide().data('id');
+        $('.target .clip[data-id="' + id + '"]').show();
+      }
+    });
+//    $('.clip').draggable({
+//      containment: 'window',
+//      helper: function() {
+//        return $(this).clone().addClass('full-size');
+//      }
+//    });
+//    $('.container, .target').sortable({
+//      connectWith: '.connectedSortable'
+//    }).disableSelection();
   </script>
 </body>
 </html>
