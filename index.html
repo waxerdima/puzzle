@@ -84,6 +84,11 @@
         }
       }
     });
+    
+    $('body').height($(window).height());
+    window.onresize = function() {
+      $('body').height($(window).height());
+    }
 //    $('.clip').draggable({
 //      containment: 'window',
 //      helper: function() {
