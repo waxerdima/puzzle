@@ -30,30 +30,22 @@
     </div>
   </div>
   
-  <!--<ul class="img">-->
-    <!--<li class="clip top1"></li>-->
-    <!--<li class="clip top2"></li>-->
-    <!--<li class="clip top3"></li>-->
-    <!--<li class="clip top4"></li>-->
-    <!--<li class="clip top5"></li>-->
-    <!--<li class="clip top6"></li>-->
-    <!--<li class="clip top7"></li>-->
-    <!--<li class="clip top8"></li>-->
-
-    <!--<li class="clip bottom1"></li>-->
-    <!--<li class="clip bottom2"></li>-->
-    <!--<li class="clip bottom3"></li>-->
-    <!--<li class="clip bottom4"></li>-->
-    <!--<li class="clip bottom5"></li>-->
-    <!--<li class="clip bottom6"></li>-->
-    <!--<li class="clip bottom7"></li>-->
-    <!--<li class="clip bottom8"></li>-->
-  <!--</ul>-->
-
   <script>
-    $('.clip').draggable({
+    $('.container .clip').draggable({
       containment: 'window',
-      revert: true
+      revert: true,
+      helper: function() {
+        var
+          width = $(window).width() - ($(window).width() / 100 * 20) - 40,
+          height = $(window).height() - 40;
+        
+        return $(this).css({
+          width: width / 2,
+          height: height / 2,
+          zIndex: 10000,
+          left: -(width / 4)
+        })
+      }
     });
     
     $('.target').droppable({
@@ -67,7 +59,7 @@
           $target = $('.target .clip[data-id="' + id + '"]'),
           width = $target.width(),
           height = $target.height(),
-          deltaX = width / 100 * 20,
+          deltaX = 0, //width / 100 * 20,
           size = ($target.css('-webkit-clip-path') || $target.css('clip-path')).replace('polygon(', '').replace(')', '').split(',');
         
         $.each(size, function(index, item) {
@@ -77,10 +69,18 @@
           minX = Math.min(parseInt(xy[0].replace(/%|px/, '')), minX);
           minY = Math.min(parseInt(xy[1].replace(/%|px/, '')), minY);
         });
-
+        console.log(ui.position);
         if ((ui.position.left - deltaX > minX / 100 * width) && (ui.position.left - deltaX < maxX / 100 * width) && (ui.position.top > minY / 100 * height) && (ui.position.top < maxY / 100 * height)) {
           ui.draggable.hide();
           $target.show();
+        } else {
+          setTimeout(function() {
+            ui.draggable.css({
+              width: '50%',
+              height: '25%',
+              left: '25%'
+            });
+          }, 700);
         }
       }
     });
